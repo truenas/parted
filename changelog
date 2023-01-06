@@ -1,0 +1,5 @@
+parted (3.99-1) unstable; urgency=medium
+
+  * Add custom TrueNAS patches
+
+ -- Vladimir Vinogradenko <vladimirv@ixsystems.com>  Fri, 06 Jan 2023 14:15:00 +0200

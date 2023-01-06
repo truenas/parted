@@ -1,0 +1,25 @@
+--- a/libparted/labels/gpt.c
++++ b/libparted/labels/gpt.c
+@@ -168,6 +168,10 @@ typedef struct
+     ((efi_guid_t) { PED_CPU_TO_LE32 (0x516e7cb6), PED_CPU_TO_LE16 (0x6ecf), \
+                     PED_CPU_TO_LE16 (0x11d6), 0x8f, 0xf8, \
+                     { 0x00, 0x02, 0x2d, 0x09, 0x71, 0x2b }})
++#define PARTITION_ZFS_GUID \
++    ((efi_guid_t) { PED_CPU_TO_LE32 (0x6a898cc3), PED_CPU_TO_LE16 (0x1dd2), \
++                    PED_CPU_TO_LE16 (0x11b2), 0x99, 0xa6, \
++                    { 0x08, 0x00, 0x20, 0x73, 0x66, 0x31 }})
+ 
+ struct __attribute__ ((packed)) _GuidPartitionTableHeader_t
+ {
+@@ -1734,6 +1738,11 @@ gpt_partition_set_system (PedPartition *part,
+           gpt_part_data->type = PARTITION_FREEBSD_UFS_GUID;
+           return 1;
+         }
++      if (strstr (fs_type->name, "zfs"))
++        {
++          gpt_part_data->type = PARTITION_ZFS_GUID;
++          return 1;
++        }
+     }
+ 
+   gpt_part_data->type = PARTITION_LINUX_DATA_GUID;
