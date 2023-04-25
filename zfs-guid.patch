@@ -9,7 +9,7 @@
 +                    PED_CPU_TO_LE16 (0x11b2), 0x99, 0xa6, \
 +                    { 0x08, 0x00, 0x20, 0x73, 0x66, 0x31 }})
  
- struct __attribute__ ((packed)) _GuidPartitionTableHeader_t
+ struct flag_uuid_mapping_t
  {
 @@ -1734,6 +1738,11 @@ gpt_partition_set_system (PedPartition *part,
            gpt_part_data->type = PARTITION_FREEBSD_UFS_GUID;
