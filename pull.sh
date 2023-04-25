@@ -1,6 +1,6 @@
 #!/bin/bash -ex
-VERSION=3.4
-REVISION=1
+VERSION=3.5
+REVISION=3
 
 wget http://deb.debian.org/debian/pool/main/p/parted/parted_$VERSION-$REVISION.debian.tar.xz
 tar xf parted_$VERSION-$REVISION.debian.tar.xz
